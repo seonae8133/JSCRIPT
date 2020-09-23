@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .e1 {
+            background-color: red;
+        }
+        .e2 {
+            background-color: blue;
+        }
+
+        .e3 {
+            background-color:yellow;
+        }
+
+        td:hover {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="showResult" style="border : 1px solid red;"></div>
+    <script>
+        var today = new Date();
+        console.log(today.getFullYear());
+        console.log(today.getMonth());
+        console.log(today.getDate());
+        console.log(today.getDay()); //오늘의 요일 , 일요일=0. 월요일=1
+        var year = today.getFullYear();
+        var month = today.getMonth();
+        var todate = today.getDate();
+
+        today.setDate(1);
+        console.log("todate : " + today.getDate());
+        console.log("today : " + today.getDay());
+        console.log(new Date(2020,8,0).getDate());
+
+        var cols = ['일','월','화','수','목','금','토'];
+        var i = 1;
+        var elem = document.getElementById("showResult");
+        var tag = "<table border='1'><tr>";
+        var count =0       
+            for(col of cols) {
+             console.log(col);
+             if(count++ == 0){
+                tag += "<td class='e1'>"+col+"</td>"; 
+                continue;
+             } else if( count ==7) {
+                 tag += "<td class='e2'>" + col +"</td>";
+                 continue;
+             } 
+
+             tag += "<td>"+col+"</td>";
+          }
+         tag += "</tr><tr>";
+
+
+//---------------------------------------------------------------------------------
+
+                for(var j=0; j<today.getDay(); j++) {
+               tag+= "<td></td>";
+            }
+
+            while (i<=new Date(2020,9,0).getDate()) {
+
+           if((i+today.getDay())%7 == 0) {
+               tag += "<td  class='e2'>" + i + "</td></tr>";
+           } else if((i+today.getDay())%7 ==1) {
+               tag += "<td  class='e1'>" + i + "</td>"; 
+           } else if(i==today.getDay()){
+               tag += "<td class='e3'>" + i + "</td>";
+           } else {
+               tag += "<td>" + i + "</td>";
+           }
+
+           i++;
+       }
+       tag += "</tr></table>";
+        elem.innerHTML = tag;
+    </script>
+
+</body>
+</html>

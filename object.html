@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="object.js"></script>
+</head>
+
+<body>
+    <script>
+        console.log("--------------html script code---------")
+        var str = "Hello";
+        var num = 10;
+        var bool = 10 > 8;
+        var func = function () {
+
+        }
+
+        // public class Student {
+        //     String name;
+        //     int age;
+
+        // } 
+        var obj1 = {//위 처럼 클래스 선언안해도 바로 변수로 인스턴스 생성하고 필드 담을수 있음
+            //필드
+            firstName: "Kildong",
+            lastName: "Hong",
+            age: 30
+        };
+
+        var obj2 = {
+            firstName: "재영",
+            lastName: "최",
+            age: 28
+        }
+
+
+        var obj3 = {
+            firstName: "형준",
+            lastName: "최",
+            age: 25
+        }
+
+        var objs = [obj1, obj2, obj3];
+        console.log(obj1.firstName);
+        console.log(obj2["firstName"]); //배열기호가 아닌 표현식을 활용해서 값 읽어옴
+
+        for (obj of objs) {
+           // console.log(obj);
+            for (field in obj) {
+                console.log("필드이름 : " + field + ", 필드의 값 : " + obj[field]); 
+            }
+        }
+
+        // for (field in obj3) {//in을 쓰면 필드의 이름을 가져옴
+        //     console.log(field); //필드명가져오고
+        //     console.log(obj3[field]); //필드의 값 가져오고
+        //     console.log("필드이름 : " + field + ", 필드의 값 : " + obj3[field]); //필드의 값 가져오고
+        // }
+    </script>
+</body>
+
+</html>

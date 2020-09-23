@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="ddd">
+        <a href="#">링크A</a>
+        <ul>
+            <li>오렌지</li>
+            <li>사과</li>
+            <li>
+                <ol>
+                    <li>부사</li>
+                    <li>아오리</li>
+                    <li>홍옥</li>
+                </ol>
+            </li>
+        </ul>
+        <h2>여기 찾아보세요.</h2>
+    </div>
+    <script>
+//        window.alert("경고창");
+        console.log(URL);
+
+        let ddd = document.getElementById("ddd");
+        console.log(ddd.childNodes[3].childNodes[1].childNodes[0].nodeValue);
+        ddd.childNodes[3].childNodes[1].childNodes[0].nodeValue = "바나나"
+        ddd.childNodes[3].childNodes[2].style.background="red";
+        ddd.childNodes[3].childNodes[1].style.background="red";
+
+        ddd.childNodes[1].style.background="pink";
+        ddd.childNodes[3].childNodes[1].style.background="pink";
+        
+        ddd.childNodes[2].childNodes[1].childNodes[0].style.background="pink";
+        
+
+        
+    </script>
+
+</body>
+
+</html>

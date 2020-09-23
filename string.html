@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str1 = "Hello";
+        var str2 = new String("Hello");
+
+        if(str1 === str2) { //=이 3개 있으면 값과 데이터 타입까지 비교함
+            console.log("같습니다");
+        } else {
+            console.log("다릅니다");
+        }
+        
+        str1 = "please locate where 'locate' occurs!";
+        var pos = str1.lastIndexOf('locate');
+        console.log(pos);
+
+        str1="김상민알파카 민해주 김상민알파카 민해주 김시무";
+        str2 ="김상민알파카";
+        if(str1.indexOf(str2)>=0) {
+            console.log("존재합니다");
+        } else {
+            console.log("없음");
+        }
+        console.log("search :" + str1.search("민해주"));
+        console.log("slice :" + str1.slice(11,17));
+        console.log("substring :" + str1.substring(11,17));
+        console.log("substr: " + str1.substr(14,3));
+        console.log(str1.search("김상민알파카"));
+    </script>
+
+</body>
+</html>

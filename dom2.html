@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom2.html</title>
+    <script src="dom.js"></script>
+    <style>
+        .lis {
+            background-color: aqua;
+        }
+
+        #hello {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body id="bdy" onload="loadPage()">
+
+    <script>
+        document.querySelectorAll("body");
+        let bdy = document.getElementsByTagName("body");
+
+        //방법1
+        bdy[0].innerHTML = "<h1>test</h1>";
+
+
+        //방법2
+        let $ul = document.createElement("ul");
+        let $li = document.createElement("li");
+        let $text = document.createTextNode("오렌지");
+        $li.setAttribute("class","lis");
+
+             
+        $ul.appendChild($li);
+        $li.appendChild($text);//오렌지
+
+        $li = document.createElement("li");
+        $ul.appendChild($li);
+        $text = document.createTextNode("사과");
+        $li.appendChild($text);
+        $li.setAttribute("style","background:red;");
+
+        bdy[0].appendChild($ul);
+        //--자식으로 설정
+
+        let $div = document.createElement("div");
+        let $p2 = document.createElement("p2");
+        let $h2 = document.createElement("h2");
+
+        $text = document.createTextNode("Hello");
+        $p2.appendChild($text);
+        $p2.setAttribute("id","hello");
+
+
+        $text = document.createTextNode("world");
+        $h2.appendChild($text);
+        $h2.setAttribute("style","color:blue;");
+
+        $div.appendChild($p2);
+        $div.appendChild($h2);
+
+        bdy[0].appendChild($div);
+
+
+    </script>
+
+</body>
+
+</html>

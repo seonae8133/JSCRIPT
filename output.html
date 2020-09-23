@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>output.html</title>
+</head>
+<body>
+
+    <div id="showResult" style="border : 1px solid red;"></div>
+    <script>
+        var num1 =  10;
+        var num2 =  20;
+
+        var result = num1 + num2 + 5;
+
+        var elem = document.getElementById("showResult");
+        elem.innerHTML = "<mark><b>"+result+"</b></mark>";
+        document.write("결과 : " + result);
+        window.print("결과 : "+ result);
+      //  window.alert(result);
+        //console.log(elem);
+
+        //console.log("결과 : " + result);
+    </script>
+</body>
+</html>

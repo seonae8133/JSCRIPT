@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>condition.html</title>
+    <style>
+        .e1 {
+            background-color: red;
+        }
+        .e2 {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="showResult" style="border : 1px solid red;"></div>
+    <script>
+         var cols = ['일','월','화','수','목','금','토'];
+        // for(var i=0; i<cols.length; i++) {
+        //     console.log(cols[i]);
+        // }
+        // //for(String str:list){}
+        // for(col of cols) { //자바 스크립트에서는 of 로 확장for문 사용
+        //     console.log(col+"출력");
+        // }
+
+        // cols.forEach(function(a,b,c) {
+        //     console.log(a,b,c);
+        // });
+
+        var i = 1;
+        var elem = document.getElementById("showResult");
+        var tag = "<table border='1'><tr>";
+        var count =0       
+            for(col of cols) {
+             console.log(col);
+             if(count++ == 0){
+                tag += "<td class='e1'>"+col+"</td>"; 
+                continue;
+             } else if( count ==7) {
+                 tag += "<td class='e2'>" + col +"</td>";
+                 continue;
+             } 
+             tag += "<td>"+col+"</td>";
+             
+         }
+         tag += "</tr><tr>";
+
+        //  cols.forEach(function(a,b,c) {
+        //      if(b) {
+        //         tag += "<td>" + a + "</td>";
+        //      }else{
+        //         tag += "<td>" + col + "</td>";
+        //      }
+        //  });
+        while (i<=30) {
+           
+            if(i%7 == 0) {
+                tag += "<td  class='e2'>" + i + "</td></tr>";
+            } else if(i%7 ==1) {
+                tag += "<td  class='e1'>" + i + "</td>"; 
+            } else {
+                tag += "<td>" + i + "</td>";
+            }
+
+            i++;
+        }
+        tag += "</tr></table>";
+         elem.innerHTML = tag;
+
+        //  var i=5;
+        //  var elem = document.getElementById("showResult");
+        //  var tag = "<table border='1'><tr>";
+        //  while(i > 0) {
+        //     tag += "<td>" + i + "</td>";
+        //     if(i%2==0){
+        //         tag += "</tr><tr>";
+        //     }
+        //     i--;
+        //  }
+        //  tag += "</tr></table>";
+        //  elem.innerHTML = tag;
+
+    //     var bool1 = 10 <8;
+    //     var sum=0;
+    //     for(var i=0; i<5; i++) {
+    //         bool1 = !bool1;
+    //         if(bool1) {
+    //             sum += i;
+    //         }
+    //     }
+    //     console.log(sum);
+
+
+
+    //   var bool1 = "a";
+    //    if (bool1) {
+    //     console.log("참 : " + bool1);
+    //    } else {
+    //        console.log("거짓 : " +bool1);
+    //    }
+    
+
+    </script>
+</body>
+
+</html>

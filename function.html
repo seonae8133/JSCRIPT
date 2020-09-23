@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="function.js"></script>
+</head>
+<body>
+    <p><mark id="showResult"></mark></p>
+    <button onclick="document.getElementById('showResult').innerHTML =minus(30,20)">클릭</button>
+    <div id="showDiv"></div>
+
+    <script>
+        var pTag = document.getElementById("showResult");
+        pTag.innerText = concat('hello','world');
+        document.getElementById("showDiv").innerText = arySum();
+        console.log("mySum 함수 실행 결과 : " +mySum());
+
+        var yourSum = mySum;
+        console.log("yourSum : " +yourSum());
+
+        var elem = document.getElementById("showDiv");
+        setBackgroundColor(elem);
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num1"> => <div id="result"></div>
+    <button id="btn">결과</button>
+
+    <script>
+        var btn = document.getElementById("btn");
+        var num1 = document.getElementById("num1");
+        var result = document.getElementById("result");
+
+        btn.onclick = function() {
+        var num =parseInt(num1.value);
+ 
+        if(num >= 90) {
+            result.innerHTML = "A학점";
+            result.style.background ="pink"
+        } else if (num >= 80) {
+            result.innerHTML = "B학점";
+            result.style.background ="yellow"
+        } else {
+            result.innerHTML = "Fail";
+            result.style.background ="hotpink"
+        }
+        }
+        
+    </script>
+</body>
+</html>

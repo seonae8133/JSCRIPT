@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes bounce {
+            from, to {
+                bottom: 0px;
+                left: 0px;
+                animation-timing-function: ease-out;
+            }
+            
+            25% {
+                bottom: 500px;
+                left: 50px;
+                animation-timing-function: ease-in;
+            }
+            50% {
+                bottom: 50px;
+                left: 500px;
+                animation-timing-function: ease-in;
+            }
+            75% {
+                bottom: 500px;
+                left: 500px;
+                animation-timing-function: ease-in;
+            }
+        }
+        div {
+            position: absolute; width: 20px; height: 20px; border-radius: 10px;
+            font-size: 30px;
+            animation-iteration-count: infinite;
+        }
+        #b1{
+            
+            animation-name: bounce;
+            /* background: red; */
+            animation-duration: 3s;
+        }
+        #b2{
+            animation-name: bounce;
+            /* background: blue; */
+            animation-duration: 3s;
+        }
+        #b3{
+            animation-name: bounce;
+             /* background: green; */
+             animation-duration: 3s;
+        }
+        #b4{
+            animation-name: bounce;
+            /* background: silver; */
+            animation-duration: 3s;
+            font-size: 10px;
+            color : red;
+        }
+        #b5{
+            animation-name: bounce;
+            /* background: black; */
+            animation-duration: 3s;
+            font-size: 10px;
+            color : red;
+        }
+
+
+        #b6{
+            animation-name: bounce;
+            /* background: black; */
+            animation-duration: 3s;
+            font-size: 10px;
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <div id="b1">이</div>
+    <div id="b2">상</div>
+    <div id="b3">민</div>
+    <div id="b4">알</div>
+    <div id="b5">파</div>
+    <div id="b6">카</div>
+</body>
+</html>

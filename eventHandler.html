@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="name">이름</label>
+    <input id="top" type="text" name="name" value="Hong">
+    <label for="name">지위</label>
+    <input id="top" type="text" name="position" value="Developer"><br>
+    <label for="name">사무실</label>
+    <input id="top"  type="text" name="office" value="Seoul">
+    <label for="name">나이</label>
+    <input id="top" type="text" name="age" value=25><br>
+    <label for="name">입사일</label>
+    <input id="top" type="text" name="startDate" value="2020/05/01">
+    <label for="name">급여</label>
+    <input id="top" type="text" name="salary" value=3000><br>
+    <button id="insert">입력</button>
+  
+    <table id="example" border='1' style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$86,000</td>
+            </tr>
+            <tr>
+                <td>Cedric Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>Edinburgh</td>
+                <td>22</td>
+                <td>2012/03/29</td>
+                <td>$433,060</td>
+            </tr>
+            <tr>
+                <td>Airi Satou</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>33</td>
+                <td>2008/11/28</td>
+                <td>$162,700</td>
+            </tr>
+            <tr>
+                <td>Brielle Williamson</td>
+                <td>Integration Specialist</td>
+                <td>New York</td>
+                <td>61</td>
+                <td>2012/12/02</td>
+                <td>$372,000</td>
+            </tr>
+            <tr>
+                <td>Herrod Chandler</td>
+                <td>Sales Assistant</td>
+                <td>San Francisco</td>
+                <td>59</td>
+                <td>2012/08/06</td>
+                <td>$137,500</td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="btn">클릭</button><br>
+    <div style="background: turquoise;">
+    name:<input id="bottom" type="text">
+    Position:<input id="bottom" type="text">
+    office:<input id="bottom" type="text">
+    Age:<input id="bottom" type="text"><br>
+    Start:<input id="bottom" type="text">
+    Salary:<input id="bottom" type="text">
+    <button id="btn">수정</button><br>
+</div>
+    <script>
+        let ins = document.getElementById("insert");
+        ins.addEventListener("click", function () {
+            
+            var types = document.querySelectorAll("input[id = 'top']");
+            var t1 = document.querySelectorAll("input[id = 'bottom']");
+            console.log(types);
+            let $tr = document.createElement("tr");
+            $tr.onmouseover = function () {
+                this.style.background = "yellow";
+            }
+
+            $tr.onmouseout = function () {
+                this.style.background = "";
+            }
+
+            for (let i = 0; i < types.length; i++) {
+                console.log(types[i].value);
+                let $td = document.createElement("td");
+                let $text = document.createTextNode(types[i].value);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            
+
+            let exm = document.getElementById("example");
+            console.log(exm.childNodes[3].appendChild($tr));
+            for (let i = 0; i < types.length; i++) {
+                types[i].value = "";
+            }
+
+            //onclick쓸 줄 모르는 선애누나는 바보가 분명합니다!=>김상민바보똥멍청이
+            $tr.onclick = function() {
+                
+
+
+
+
+              //  this.style.display = "none";
+            }
+
+            // $tr.addEventListener("click", function() {
+            //     this.style.display = "none";
+            // });
+        });
+
+
+        let tds = document.querySelectorAll("tr");
+        for (let i = 0; i < tds.length; i++) {
+            tds[i].addEventListener("mouseover",
+                function () {
+                    this.style.background = "yellow";
+                });
+            tds[i].addEventListener("mouseout",
+                function () {
+                    this.style.background = "";
+
+                });
+            tds[i].addEventListener("click",
+                function () {
+
+                    //this.style.display = "none";
+                    console.log(this.childNodes[7].childNodes[0].nodeValue);
+                    
+                   
+                });
+        }
+
+
+    //     let btn = document.getElementById("btn");
+    //     btn.addEventListener(
+    //         "click",function() {
+    //         console.log(this);
+    //         this.style.background = "yellow";
+    //         this.style.color = "black";
+
+    // });
+
+    // btn.addEventListener(
+    //         "mouseover",function() {
+    //         console.log(this);
+    //         this.style.background = "red";
+    //         this.style.color = "white";
+
+    // });
+
+    // btn.addEventListener(
+    //         "mouseout",function() {
+    //         console.log(this);
+    //         this.style.background = "";
+    //         this.style.color = "";
+
+    // });
+
+
+
+
+    </script>
+
+</body>
+
+</html>
