@@ -40,9 +40,10 @@ class Board {
 
 }
 let boardDB = [];
-boardDB.push(new Board(1, '자바스크립트', '웹언어입니다', '이정은'));
+boardDB.push(new Board(1, '막순이 멍집사', '막순이 큰오빠의 하루', '최쟁이'));
 boardDB.push(new Board(2, '자바', '컴파일러입니다', '김도은'));
 boardDB.push(new Board(3, '오라클', '데이터베이스입니다', '염평강'));
+boardDB.push(new Board(4, '자바스크립트', '웹언어입니다', '이정은'));
 
 let b1 = new Board(1, 'title', 'content', 'writer');
 console.log(boardDB[0]);
@@ -87,7 +88,6 @@ function getBoardList() {
                 checkbox = document.createElement("input");
                 checkbox.setAttribute("type", "checkbox");
                 checkbox.onclick = function () {
-
                 }
                 td.append(checkbox);
             } else if (field === 'button') {
@@ -102,7 +102,7 @@ function getBoardList() {
             tr.append(td);
         }
     });
-    document.getElementById("main").append(table);
+    document.getElementById("main").append(table); 
 }
 
 function insertData() {
