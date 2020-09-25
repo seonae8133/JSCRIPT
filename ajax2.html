@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax2.html</title>
+    <script>
+        let xhtp = new XMLHttpRequest();
+        let xmlData; //ㅍ
+        xhtp.onreadystatechange = function () {
+            let table, tr, th, td, text;
+            table = "<table border='1'>";
+            if (this.readyState == 4 && this.status == 200) { //여기서 this 는 xhtp 
+                //let main = document.getElementById('main');//비동기 방식으로 요소를 이 시점에 읽어옴
+                //main.innerHTML = this.response;
+                let data = this.responseXML;
+                xmlData = this.responseXML;
+                let cds = data.getElementsByTagName('CD');
+                for (let i = 0; i < cds.length; i++) {
+                    table += "<tr id=" + i + " onclick='showCD("+i+")'>";
+                    table += "<td>" + cds[i].children[0].innerHTML + "</td>";
+                    table += "<td>" + cds[i].children[1].innerHTML + "</td>";
+                }
+                table += "</table>";
+                document.getElementById('main').innerHTML = table;
+            }
+        }
+        xhtp.open('get', 'cd_catalog.xml');
+        xhtp.send();
+
+        function showCD(i) {
+            let cds = xmlData.getElementsByTagName('CD');
+            let myP ="Title: " + cds[i].children[0].innerHTML;
+            myP += "<br>Artist: " + cds[i].children[1].innerHTML;
+            
+            document.getElementById('show').innerHTML = myP;
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Origin Sample</h1>
+    <p id="show"></p>
+    <div id='main'></div>
+</body>
+
+</html>

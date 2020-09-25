@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajaxXml</title>
+    <script>
+        function loadXml() {
+            let xhtp = new XMLHttpRequest(); //AJAX 요청을 보내는 XMLHttpRequest 객체를 생성
+
+            xhtp.onreadystatechange = function () { // 요청에 대한 콜백(onreadystatechange가 요청에 대한 응답을 받는 이벤트 리스너)
+                if (xhtp.readyState == 4 && xhtp.status == 200) { // 요청이 완료되면
+                    createPage(xhtp.responseXML);
+                }
+            }
+            xhtp.open('get', 'cd_catalog.xml', true); // open메소드로 요청 열어줌 -메소드전송방식과 주소(파일) 설정
+            xhtp.send(); //요청 전송 (send 메소드로 요청을 서버로 보냄)
+        }
+
+        function createPage(data) {
+            //console.log(data);
+            let tbl = document.getElementById("tbl");
+            let cds = data.getElementsByTagName('CD');
+            let tr, td, text;
+            let titles = [" 노래제목", "가수", "나라", "레코드사", "가격", "출시년"];
+
+            tr = document.createElement("tr");
+            tbl.appendChild(tr);
+            for (let title of titles) {
+                th = document.createElement("th");
+                text = document.createTextNode(title);
+                th.appendChild(text);
+                tr.appendChild(th);
+            }
+
+            for (let i = 0; i < cds.length; i++) {
+                    tr = document.createElement("tr");
+                for (let j = 0; j < cds[i].children.length; j++) {
+                    //row 한건생성.
+                    //cloumn 생성 (title.airtist,contry...)
+                    td = document.createElement("td");
+                    text = document.createTextNode(cds[i].children[j].innerHTML); //titile
+                    td.append(text);
+                    tr.append(td);
+                    tbl.append(tr);
+                }
+
+                // //row 한건생성.
+                // tr = document.createElement("tr");
+                // //cloumn 생성 (title.airtist,contry...)
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[0].innerHTML); //titile
+                // td.append(text);
+                // tr.append(td);
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[1].innerHTML); //artist
+                // td.append(text);
+                // tr.append(td);
+                // // cds[i].children[2].innerHTML;//contry
+                // // cds[i].children[3].innerHTML;//company
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[2].innerHTML); //contry
+                // td.append(text);
+                // tr.append(td);
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[3].innerHTML); //contry
+                // td.append(text);
+                // tr.append(td);
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[4].innerHTML); //contry
+                // td.append(text);
+                // tr.append(td);
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[5].innerHTML); //contry
+                // td.append(text);
+                // tr.append(td);
+
+
+            
+            }
+            //tbl.append("리스트"); append는 문자열도 추가가능, appendchild는 document.getElement 요소들만 추가 가능
+            console.log(cds[0].children[1].innerHTML); //children쓰면 중간에 낀text는 빼고 실제 찾을 값들로 순서 매김
+        }
+    </script>
+</head>
+
+<body>
+    <h2>XML요청</h2><br>
+    <button onclick="loadXml()">클릭</button>
+    <table id="tbl" border="1"></table>
+</body>
+
+</html>
